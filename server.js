@@ -1,19 +1,21 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-const port = 3000; 
+const port = process.env.APP_PORT || 3000;
+const appHost = process.env.APP_HOST || '0.0.0.0';
 
 app.use(cors()); 
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: '104.197.141.224', 
-    user: 'arya',                      
-    password: 'Rahasia123*', 
-    database: 'notes',
-    port: 3306
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
 });
 
 db.connect((err) => {
@@ -89,6 +91,6 @@ app.delete('/notes/:id', (req, res) => {
 });
 
 // Jalankan Server
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server Express berjalan di http://0.0.0.0:${port}`);
+app.listen(port, appHost, () => {
+    console.log(`Server Express berjalan di http://${appHost}:${port}`);
 });
