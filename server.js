@@ -89,6 +89,6 @@ app.delete('/notes/:id', (req, res) => {
 });
 
 // Jalankan Server
-app.listen(port, () => {
-    console.log(`Server Express berjalan di http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server Express berjalan di http://0.0.0.0:${port}`);
 });
