@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <h1>Notes<span>.</span></h1>
+            <div class="accent-line"></div>
+        </header>
+        
+        <div class="editor-section">
+            <input type="hidden" id="note-id">
+            <input type="text" id="judul" class="modern-input title-input" placeholder="Judul Catatan" required>
+            <textarea id="isi" class="modern-input body-input" rows="4" placeholder="Apa yang ada di pikiranmu?" required></textarea>
+            
+            <div class="action-bar">
+                <button onclick="simpanCatatan()" id="btn-simpan" class="btn-glow">Simpan</button>
+                <button onclick="batalEdit()" id="btn-batal" class="btn-outline" style="display: none;">Batal</button>
+            </div>
+        </div>
+
+        <div id="daftar-catatan" class="notes-grid"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
